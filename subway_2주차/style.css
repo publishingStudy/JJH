@@ -29,8 +29,6 @@ body{
 }
 
 
-
-
 .menu-bar-logo{
     display: flex;
     justify-content: space-between;
@@ -86,6 +84,10 @@ body{
 .menu-bar-menu ul li {
     font-size: 19px;
     font-weight: 800;
+}
+
+.menu-bar-menu ul li:hover{
+    color: #009132;
 }
 
 
