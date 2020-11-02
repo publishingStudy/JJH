@@ -182,7 +182,7 @@ body{
     position: absolute;
     width: 1920px;
     margin-top: -60px;
-    margin-left: -50px;
+    margin-left: -380px;
     display: flex;
     justify-content: flex-end;
     /* margin-right: 500px; */
@@ -191,7 +191,7 @@ body{
 .manual-btn {
     position: relative;
     top: -240px;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     background-color: #fff;
     padding: 5px;
     border-radius: 10px;
@@ -231,4 +231,41 @@ body{
     margin-left: -100%;
 }
 
+.map {
+    display: flex;
+    border-radius: 50px 0 50px 0;
+    position: relative;
+    top: 480px;
+    left: 950px;
+    width: 600px;
+    height: 90px;
+    background-color: yellow;
+}
 
+.map img{
+    margin-right: 10px;
+}
+
+.mapOne{
+    font-size: 22px;
+    font-weight: 800;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 0 0 0;
+    width: 50%;
+    background-color: #FFCE32;
+}
+
+.mapTwo{
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 50px 0;
+    width: 50%;
+    background-color: #009132;
+}
