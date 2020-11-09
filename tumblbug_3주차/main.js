@@ -2,7 +2,7 @@ const slideContainer = document.querySelector('.container');
 const slide = document.querySelector('.slides');
 const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
-const interval = 4000;
+const interval = 2000;
 const page = document.getElementById('page');
 const title = document.getElementById('title-item');
 const desc = document.getElementById('desc-item');
@@ -112,7 +112,7 @@ const moveToNextSlide = () =>{
         pageAdder(); // Here
         
         slide.style.transform = `translateX(${-slideWidth * index}px)`; 
-        slide.style.transition = '.8s';
+        slide.style.transition = '.3s';
 }
 
 const moveToPrevSlide = () =>{
@@ -123,7 +123,7 @@ const moveToPrevSlide = () =>{
         pageAdder(); // Here
         
         slide.style.transform = `translateX(${-slideWidth * index}px)`; 
-        slide.style.transition = '.8s';
+        slide.style.transition = '.3s';
 }
 
 slideContainer.addEventListener('mouseenter', ()=>{
