@@ -3,7 +3,6 @@
     margin: 0;
 }
 
-
 li {
     cursor: pointer;
 }
@@ -41,7 +40,6 @@ body{
 
 .menu-bar-logo .logo-img{
     display:block;
-    
     height: 50px;
     margin-left: 170px;
 }
@@ -51,7 +49,6 @@ body{
 .menu-bar-login {
     display: flex;
     justify-content: space-around;
-    /* margin-right: 150px; */
     align-items: center;
     width: 150px;
 }
