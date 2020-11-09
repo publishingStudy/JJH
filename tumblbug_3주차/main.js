@@ -47,8 +47,7 @@ let index = 1;
 let slideId; 
 let realCounter = 1;
 
-
-const pageAdder = () => {
+const pageAdder = () => {  // 가상 slide를 추가하다 보니, index값이 계속 변함 > realCounter 지정
     realCounter = index;
     if(realCounter === 6){
         realCounter = 1;
@@ -63,26 +62,26 @@ const pageAdder = () => {
     backColor.style.background = `${pageInfo[realCounter-1].pageColor}`;
 }
 
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
+const firstClone = slides[0].cloneNode(true); // firstClone 에 첫번째 페이지 추가
+const lastClone = slides[slides.length - 1].cloneNode(true); // lastClone에 마지막 페이지 추가
 
-firstClone.id = 'first-clone';
+firstClone.id = 'first-clone'; // id 부여
 lastClone.id = 'last-clone';
 
-slide.append(firstClone); // 뒤에 추가
-slide.prepend(lastClone); // 앞에 추가
+slide.append(firstClone); // 슬라이드 뒤에 추가 -> 슬라이드 처음에서 prev 했을 때 슬라이드 없기에 가상 슬라이드 생성 
+slide.prepend(lastClone); // 슬라이드 앞에 추가 -> 슬라이드 마지막에 next 했을 때 슬라이드 없기에 가상 슬라이드 생성
 
-const slideWidth = slides[index].clientWidth;
+const slideWidth = slides[index].clientWidth;  // 사이즈 뽑기
 
-slide.style.transform = `translateX(${-slideWidth * index}px)`;
+//slide.style.transform = `translateX(${-slideWidth * index}px)`; // 슬라이드 넘어갈때마다 x축으로 해당index * width 이동
 
-const startSlide = () =>{
+const startSlide = () =>{  // 슬라이드 시작
     slideId = setInterval(() =>{
         // index++;
         // slide.style.transform = `translateX(${-slideWidth * index}px)`; 
         // slide.style.transition = '.8s';
         moveToNextSlide()
-    }, interval)
+    }, interval) // interval 초마다 setInterval 
 }
 
 const getSlides = () => {
@@ -103,37 +102,33 @@ slide.addEventListener('transitionend', ()=>{
     }
 });
 
-const moveToNextSlide = () =>{
-        
+const moveToNextSlide = () =>{ //
             slides = document.querySelectorAll('.slide');
-            if(index >= slides.length - 1) return;
-        index++;
-        pageAdder(); // Here
+            if(index >= slides.length - 1) return; // 빠르게 넘기면 다음 슬라이드 멈추는 것 방지하기 위해 return 
+        index++;    // 다음 슬라이드에서 index++
+        pageAdder(); // 해당 index에 맞는 pageInfo Object에서 적용
         
-        slide.style.transform = `translateX(${-slideWidth * index}px)`; 
-        slide.style.transition = '.3s';
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;  // 넘어갈 때 x축으로 해당index * width 이동
+        slide.style.transition = '.3s'; // 트랜지션 0.3초
 }
 
 const moveToPrevSlide = () =>{
-        
-        
-            if(index <= 0) return;
+            if(index <= 0) return; // 빠르게 넘기면 다음 슬라이드 멈추는 것 방지하기 위해 return
         index--;
-        pageAdder(); // Here
+        pageAdder(); // 해당 index에 맞는 pageInfo Object에서 적용
         
-        slide.style.transform = `translateX(${-slideWidth * index}px)`; 
-        slide.style.transition = '.3s';
+        slide.style.transform = `translateX(${-slideWidth * index}px)`;  // same
+        slide.style.transition = '.3s'; // .3초 트랜지션
 }
 
-slideContainer.addEventListener('mouseenter', ()=>{
-    clearInterval(slideId);
-    
+slideContainer.addEventListener('mouseenter', ()=>{ // 마우스가 slider안에 있을 때 
+    clearInterval(slideId); // setInterval 중지
 })
 
-slideContainer.addEventListener('mouseleave', startSlide);
+slideContainer.addEventListener('mouseleave', startSlide); // 마우스가 밖에 있을 때 다시 startSlide
 
-nextBtn.addEventListener('click', moveToNextSlide);
-
-prevBtn.addEventListener('click', moveToPrevSlide);
+nextBtn.addEventListener('click', moveToNextSlide); // next btn 클릭
+ 
+prevBtn.addEventListener('click', moveToPrevSlide); // prev btn 클릭
 
 startSlide();

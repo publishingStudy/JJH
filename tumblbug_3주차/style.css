@@ -98,7 +98,7 @@
 .slide-controls{
     position: absolute;
     top:65%;
-    right: 220px;
+    right: 235px;
     transform: translateY(-50%);
     
     /* width: 100%; */
@@ -133,7 +133,7 @@
     font-size: 14px;
     color: #fff;
     background-color: #222222;
-    /* margin-top: 20px; */
+    
 }
 
 .slide-content {
