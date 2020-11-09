@@ -42,7 +42,6 @@ let pageInfo = [
     }
 ]
 
-let color = ['#222222','#358EB5','#D77847','#F3ADAC','#2EA68A'];
 let slides = document.querySelectorAll('.slide');
 let index = 1;
 let slideId; 
